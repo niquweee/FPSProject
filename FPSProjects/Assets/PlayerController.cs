@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         //Calculate movement velocity as a 3D vector
         float _xMov =  Input.GetAxis("Vertical");
         float _zMov = Input.GetAxis("Horizontal");
-        Vector3 _movHorizontal = transform.right * _xMov;
+        Vector3 _movHorizontal = -transform.right * _xMov;
         Vector3 _movVertical = transform.forward * _zMov;
 
         // Final movement vector

@@ -6,7 +6,7 @@ public class PlayerMotor : MonoBehaviour {
 
     [SerializeField]
     private Camera cam;
-
+    public int sprintSpeed;
     private Vector3 velocity = Vector3.zero;
     private Vector3 rotation = Vector3.zero;
     private float cameraRotationX = 0f;
@@ -20,6 +20,7 @@ public class PlayerMotor : MonoBehaviour {
 
     void Start()
     {
+        sprintSpeed = 1;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -50,6 +51,8 @@ public class PlayerMotor : MonoBehaviour {
     // Run every physics iteration
     void FixedUpdate()
     {
+
+       
         PerformMovement();
         PerformRotation();
     }
@@ -57,10 +60,20 @@ public class PlayerMotor : MonoBehaviour {
     //Perform movement based on velocity variable
     void PerformMovement()
     {
-        if (velocity != Vector3.zero)
+        if (Input.GetKey(KeyCode.LeftShift))
+            {
+            sprintSpeed = 2;
+            }
+        else
         {
-            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+            sprintSpeed = 1;
         }
+    
+        if (velocity != Vector3.zero)
+            {
+                Debug.Log(sprintSpeed);
+                rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime * sprintSpeed);
+            }
 
    
 
@@ -70,15 +83,7 @@ public class PlayerMotor : MonoBehaviour {
     void PerformRotation()
     {
         rb.MoveRotation(rb.rotation * Quaternion.Euler(rotation));
-        if (cam != null)
-        {
-            // Set our rotation and clamp it
-            currentCameraRotationX -= cameraRotationX;
-            currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
-
-            //Apply our rotation to the transform of our camera
-            cam.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
-        }
+  
     }
 
 }
