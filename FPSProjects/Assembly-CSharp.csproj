@@ -64,7 +64,9 @@
     <Compile Include="Assets\GunController.cs" />
     <Compile Include="Assets\PlaneTest.cs" />
     <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\PlayerLook.cs" />
     <Compile Include="Assets\PlayerMotor.cs" />
+    <Compile Include="Assets\PlayerMove.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Niklas/Desktop/UnityProjects/FPSProject/FPSProjects/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

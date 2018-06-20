@@ -30,24 +30,37 @@ public class CubeController : MonoBehaviour {
         Debug.Log(iterator);
         if (isOn)
         {
-            StartCoroutine(movementEnemy());
+            movementEnemy();
         }
 
     }
 
-   public IEnumerator movementEnemy()
+   public void movementEnemy()
     {
+       
+       
 
-        if (iterator <= patrolLength)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, patrolPoints[iterator].transform.position, moveSpeed * Time.deltaTime);
-        }
-        if (transform.position == patrolPoints[iterator].transform.position)
-        {
-            yield return new WaitForSeconds(5.0f);
-            iterator++;
-           
-        } 
+    
+
+
+
+
+          if (iterator <= patrolLength - 1)
+                  {
+
+                   transform.position = Vector3.MoveTowards(transform.position, patrolPoints[iterator].transform.position, moveSpeed * Time.deltaTime);
+                   if (transform.position == patrolPoints[iterator].transform.position)
+                       {
+
+                       iterator++;
+                       }
+                  }
+          else
+            {
+                iterator = 0;
+            }
+
+
     }
     
 }

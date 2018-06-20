@@ -537,6 +537,7 @@ GameObject:
   - component: {fileID: 282840814}
   - component: {fileID: 282840813}
   - component: {fileID: 282840811}
+  - component: {fileID: 282840812}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -551,6 +552,19 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282840810}
   m_Enabled: 1
+--- !u!114 &282840812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 282840810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa18faadc710f8c47b1380517e10d5c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBody: {fileID: 1156658391}
+  mouseSensitivity: 0
 --- !u!20 &282840813
 Camera:
   m_ObjectHideFlags: 0
@@ -1294,9 +1308,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1156658391}
-  - component: {fileID: 1156658390}
-  - component: {fileID: 1156658389}
   - component: {fileID: 1156658393}
+  - component: {fileID: 1156658389}
   - component: {fileID: 1156658392}
   m_Layer: 0
   m_Name: Player
@@ -1318,21 +1331,6 @@ CapsuleCollider:
   m_Height: 1.75214
   m_Direction: 1
   m_Center: {x: 0, y: -0.012599945, z: 0}
---- !u!54 &1156658390
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1156658388}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!4 &1156658391
 Transform:
   m_ObjectHideFlags: 0
@@ -1357,32 +1355,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1156658388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adee0ffed6579e543a2170d9a293bf82, type: 3}
+  m_Script: {fileID: 11500000, guid: 5144eb2d691674e408b12a2c2b17641b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  sprintSpeed: 0
-  cameraRotationLimit: 85
---- !u!114 &1156658393
-MonoBehaviour:
+  walkSpeed: 0
+--- !u!143 &1156658393
+CharacterController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1156658388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcbd890bb252c2943b31e84032101914, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  lookSensitivity: 3
-  thrusterForce: 1000
-  thrusterFuelBurnSpeed: 1
-  thrusterFuelRegenSpeed: 0.3
-  environmentMask:
-    serializedVersion: 2
-    m_Bits: 0
-  motor: {fileID: 0}
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1180480344
 Prefab:
   m_ObjectHideFlags: 0
@@ -2016,24 +2009,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 69b5e4d6b69f77848be6ffe13cea95c6, type: 3}
   m_PrefabInternal: {fileID: 1104785847}
---- !u!1 &1702720862 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100000, guid: b44928fa469eada408310976ad79fd3d, type: 3}
-  m_PrefabInternal: {fileID: 353271504}
---- !u!64 &1702720865
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1702720862}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: b44928fa469eada408310976ad79fd3d, type: 3}
 --- !u!4 &1741860739 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: b44928fa469eada408310976ad79fd3d, type: 3}
