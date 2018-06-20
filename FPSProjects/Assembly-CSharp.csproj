@@ -59,6 +59,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CubeController.cs" />
+    <Compile Include="Assets\EnemyController.cs" />
     <Compile Include="Assets\GunController.cs" />
     <Compile Include="Assets\PlaneTest.cs" />
     <Compile Include="Assets\PlayerController.cs" />
