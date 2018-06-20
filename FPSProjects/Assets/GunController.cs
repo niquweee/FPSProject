@@ -14,18 +14,16 @@ public class GunController : MonoBehaviour {
     {
      
     }
+
     // Update is called once per frame
-    void FixedUpdate ()
+    void Update()
     {
-	    if(Input.GetMouseButton(0))
-            {
-            Shoot();
-            }
+        if (Input.GetMouseButton(0))
+        {
+           
+        }
+    }
+     
+
     }
 
-    public void Shoot()
-        {
-      
-        }
-
-}

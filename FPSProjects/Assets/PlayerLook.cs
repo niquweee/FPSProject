@@ -12,6 +12,7 @@ public class PlayerLook : MonoBehaviour
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        mouseSensitivity = 3.0f;
     }
 
     void Update()
@@ -47,7 +48,7 @@ public class PlayerLook : MonoBehaviour
             targetRotCam.x = 270;
         }
 
-        print(mouseY);
+
 
 
         transform.rotation = Quaternion.Euler(targetRotCam);
