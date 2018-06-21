@@ -5,16 +5,18 @@ using UnityEngine;
 public class CubeController : MonoBehaviour {
     public bool isOn;
     public GameObject destination;
+    public GameObject enemyPrefab;
     public Vector3 destinationPos;
     public List <GameObject> patrolPoints = new List<GameObject>();
     public int moveSpeed;
     public int patrolLength;
     public int iterator;
+    public int health = 10;
     private void Awake()
     {
 
         foreach (GameObject addObj in GameObject.FindGameObjectsWithTag("PatrolStation"))
-            patrolPoints.Add(addObj);
+        patrolPoints.Add(addObj);
         patrolLength = patrolPoints.Count;
         iterator = 0;
     }
@@ -27,6 +29,11 @@ public class CubeController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if (health <= 0)
+        {
+            StartCoroutine(Respawn());
+
+        }
         Debug.Log(iterator);
         if (isOn)
         {
@@ -56,5 +63,20 @@ public class CubeController : MonoBehaviour {
 
 
     }
-    
+
+    IEnumerator Respawn()
+    {
+        Destroy(gameObject);
+        yield return new WaitForSeconds(1.0f);
+        Instantiate(enemyPrefab, patrolPoints[4].transform.position, patrolPoints[4].transform.rotation);
+        health = 10;
+
+    }
+
+    void OnTriggerEnter()
+    {
+        health -= 1;
+    }
+
+
 }
