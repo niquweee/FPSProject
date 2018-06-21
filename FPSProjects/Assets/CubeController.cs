@@ -38,12 +38,6 @@ public class CubeController : MonoBehaviour {
    public void movementEnemy()
     {
        
-       
-
-    
-
-
-
 
           if (iterator <= patrolLength - 1)
                   {
