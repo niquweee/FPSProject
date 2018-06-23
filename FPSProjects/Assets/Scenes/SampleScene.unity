@@ -398,7 +398,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 391106721}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &215708617
 Prefab:
@@ -525,7 +525,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 391106721}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &353271504
 Prefab:
@@ -618,6 +618,7 @@ Transform:
   m_LocalPosition: {x: 14.95, y: 13, z: -20.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1677986726}
   - {fileID: 1915204280}
   - {fileID: 1298810021}
   - {fileID: 1061534781}
@@ -753,11 +754,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 417554, guid: 30d819e0f44869f4e82f18d655b5c786, type: 2}
       propertyPath: m_LocalScale.z
-      value: 1.0000002
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 117554, guid: 30d819e0f44869f4e82f18d655b5c786, type: 2}
       propertyPath: m_TagString
       value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 417554, guid: 30d819e0f44869f4e82f18d655b5c786, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9517554, guid: 30d819e0f44869f4e82f18d655b5c786, type: 2}
@@ -1017,6 +1022,27 @@ MonoBehaviour:
   bulletSpawn: {fileID: 0}
   isFired: 0
   gunFireRate: 0.2
+  bulltesMag: 0
+  isReloading: 0
+  anim: {fileID: 766496115}
+--- !u!95 &766496115
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 766496112}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d4ee099c6e124747b60e0be6728881e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &769788085
 Prefab:
   m_ObjectHideFlags: 0
@@ -1276,8 +1302,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 391106721}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1065423942 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1043120553034576, guid: 8b27eadf9856b40439c8246e19d18aa8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1212730697}
 --- !u!4 &1078505391 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 6c31e44d6e6d6d942a0538263718d073, type: 3}
@@ -1615,6 +1646,9 @@ MonoBehaviour:
   bulletSpawn: {fileID: 0}
   isFired: 0
   gunFireRate: 1
+  bulltesMag: 0
+  isReloading: 0
+  anim: {fileID: 766496115}
 --- !u!1 &1296995670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,7 +1719,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 391106721}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1301242066
 Prefab:
@@ -2150,8 +2184,53 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 391106721}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1677986725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1677986726}
+  - component: {fileID: 1677986727}
+  m_Layer: 0
+  m_Name: Respawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1677986726
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1677986725}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.0864067, y: -3.7151566, z: 10.020885}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 391106721}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1677986727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1677986725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e59abda375e044641818c72629528263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cube: {fileID: 1065423942}
+  enemies: []
+  enemyPrefab: {fileID: 1043120553034576, guid: 8b27eadf9856b40439c8246e19d18aa8,
+    type: 2}
+  isDead: 0
 --- !u!4 &1678964837 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 69b5e4d6b69f77848be6ffe13cea95c6, type: 3}
@@ -2252,7 +2331,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 391106721}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1816524757
 Prefab:
@@ -2422,7 +2501,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 391106721}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1990240269
 GameObject:

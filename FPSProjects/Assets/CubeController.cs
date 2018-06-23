@@ -12,6 +12,10 @@ public class CubeController : MonoBehaviour {
     public int patrolLength;
     public int iterator;
     public int health = 10;
+    public bool isDead;
+    
+
+
     private void Awake()
     {
 
@@ -31,7 +35,8 @@ public class CubeController : MonoBehaviour {
 
         if (health <= 0)
         {
-            StartCoroutine(Respawn());
+            isDead = true;
+           
 
         }
         Debug.Log(iterator);
@@ -64,14 +69,7 @@ public class CubeController : MonoBehaviour {
 
     }
 
-    IEnumerator Respawn()
-    {
-        Destroy(gameObject);
-        yield return new WaitForSeconds(1.0f);
-        Instantiate(enemyPrefab, patrolPoints[4].transform.position, patrolPoints[4].transform.rotation);
-        health = 10;
 
-    }
 
     void OnTriggerEnter()
     {
